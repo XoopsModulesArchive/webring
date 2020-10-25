@@ -1,0 +1,4 @@
+On est RC3, donc vous pouvez utiliser l'install integrer!!!!
+Ancienne methode: (elle marche peut-etre encore!?)
+executer sur votre site le fichier modules/webring/install/install.php
+et n'oubliez pas d'effacer ce repertoire après l'installation du module :)

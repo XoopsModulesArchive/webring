@@ -1,0 +1,24 @@
+Le lun 06/01/2003 à 14:22, Daniel a écrit :
+Hello à tous,
+> 
+> la version 2.4.6.87 ßeta est en test. L'environement en allemand et italien sont complets :)
+> (Cela devrait être la dernière ßeta avant la sortie de la 2.5)
+> 
+> Les Nouveautés :
+> - "Enregistrer sous" le contenu du panneau "Informations"
+> - Option php pour insérer un bloc <?php ?> au lieu de <? ?>
+> - L'élément "Mime Types" dans la librairie de Clip, affiche les types MIME les plus utilisés.
+> 
+> Les Améliorations :
+> - FTP Manager travaille avec un nouveau type de serveurs FTP sous Windows utilisant un mode Linux.
+> 
+> Les Corrections :
+> - Ajout de mots-clé manquants à la coloration syntaxique SQL
+> 
+> 
+> Rappel :
+> - Pour télécharger une ßeta version, il faut en même temps appuyer sur la touche CTRL et cliquer sur l'add-on 'SmartUpdate' dans le menu Outils. C'est le seul moyen pour obtenir une ßeta version !
+> 
+> 
+> Je vous souhaite une Bonne Année.
+>

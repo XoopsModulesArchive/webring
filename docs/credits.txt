@@ -1,0 +1,13 @@
+Module webring
+v0.1 : kyex 05/2002
+premiere version!
+-gestion multi webring
+-ajout site -> code HTML a inserer dans le site
+-ajout d'un site uniquement pour les membres
+-image optionelle pour le webring
+-choix utilisateur : precedent,suivant,hasard. liste en cliquant sur l'image/nom du webring
+-///////////////////////////////////////////////////////////// 
+-Converting to E-Xoops by: 
+-Johan Carleson, linuxdude@home.se 
+-http://e-xoops.carleson.net
+-////////////////////////////////////////////////////////////

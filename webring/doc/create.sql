@@ -1,0 +1,77 @@
+CREATE TABLE webring (
+    idsite      TINYINT      NOT NULL AUTO_INCREMENT UNIQUE,
+    site_nom    VARCHAR(100) NOT NULL UNIQUE,
+    url         VARCHAR(100) NOT NULL UNIQUE,
+    description VARCHAR(254) NOT NULL,
+    webmaster   VARCHAR(50)  NOT NULL,
+    email       VARCHAR(50)  NOT NULL UNIQUE,
+    pseudo      VARCHAR(20)  NOT NULL UNIQUE,
+    mdp         VARCHAR(20)  NOT NULL,
+    visites     SMALLINT(4)           DEFAULT '0',
+    date        DATE         NOT NULL DEFAULT '0000-00-00',
+    page        VARCHAR(254),
+    accept      TINYINT(1)   NOT NULL DEFAULT '0',
+    PRIMARY KEY (idsite)
+);
+CREATE TABLE webring_com (
+    idcom  TINYINT     NOT NULL AUTO_INCREMENT,
+    idsite TINYINT     NOT NULL,
+    auteur VARCHAR(15) NOT NULL,
+    texte  CHAR(255)   NOT NULL,
+    note   SMALLINT(2)          DEFAULT '0',
+    date   DATE        NOT NULL DEFAULT '0000-00-00',
+    PRIMARY KEY (idcom)
+);
+CREATE TABLE webring_adm (
+    idadm    TINYINT      NOT NULL AUTO_INCREMENT,
+    loginadm VARCHAR(10)  NOT NULL,
+    passadm  VARCHAR(10)  NOT NULL,
+    nomadm   VARCHAR(100) NOT NULL,
+    emailadm VARCHAR(50)  NOT NULL,
+    PRIMARY KEY (idadm)
+);
+CREATE TABLE webring_conf (
+    idconf            TINYINT(4)   NOT NULL AUTO_INCREMENT,
+    lang              CHAR(3)      NOT NULL DEFAULT '',
+    mailadm           VARCHAR(15)  NOT NULL DEFAULT 'all',
+    signature         TINYTEXT     NOT NULL,
+    adresse_site      VARCHAR(100) NOT NULL DEFAULT '',
+    dossierwr         VARCHAR(50)  NOT NULL DEFAULT '',
+    type              VARCHAR(50)  NOT NULL DEFAULT '',
+    nomwr             VARCHAR(20)  NOT NULL DEFAULT '',
+    jrnew             SMALLINT(2)           DEFAULT '7',
+    classement        VARCHAR(15)           DEFAULT NULL,
+    nbre              SMALLINT(2)  NOT NULL DEFAULT '0',
+    nbre_rech         SMALLINT(2)  NOT NULL DEFAULT '5',
+    ordre             VARCHAR(4)   NOT NULL DEFAULT '',
+    msg_acc           MEDIUMTEXT   NOT NULL,
+    msg_desac         MEDIUMTEXT   NOT NULL,
+    msg_supp_script   MEDIUMTEXT   NOT NULL,
+    msg_insc          MEDIUMTEXT   NOT NULL,
+    msg_refus         MEDIUMTEXT   NOT NULL,
+    msg_supp_decision MEDIUMTEXT   NOT NULL,
+    rappel_ident      MEDIUMTEXT   NOT NULL,
+    version           VARCHAR(6)            DEFAULT NULL,
+    PRIMARY KEY (idconf)
+)
+INSERT INTO webring_conf
+VALUES (1,
+        'fra',
+        'all',
+        '@+\r\nRobert\r\n-----------------------\r\nAdministrateur du Webirng\r\n-----------------------',
+        'http://localhost',
+        'webring',
+        'Choses',
+        'Choses\'ring',
+        7,
+        'date',
+        5,
+        5,
+        'ASC',
+        'Bonjour €NOMDUWEBMASTER,\r\nVous avez demande a ce que votre site €NOMDUSITE rejoigne le webring des sites de €TYPEDEWEBRING.\r\n Votre demande a ete acceptee. Allez a l\'adresse suivante : €CHEMINDUWEBRING/admin.php pour obtenir le code a ajouter a votre site et indiquer une page ou ce trouve le code.\r\n Attention : Il est important de ne pas modifier ce code car des verifications sont effectuees regulierement.\r\n Rappel de votre pseudo : €PSEUDODUMEMBRE\r\nRappel de votre mot de passe : €MOTDEPASSEDUMEMBRE\r\n€SIGNATURE',
+        ' Bonjour €NOMDUWEBMASTER,\r\n Votre site fait parti du €NOMDUWEBRING. Nous avons remarque que votre site ne contient pas le script du webring. Un webring est une chaine de sites, il ne faut pas que cette chaine soit rompue.\r\n Mommentanement, votre site a ete desactive.\r\n €SIGNATURE',
+        'Bonjour €NOMDUWEBMASTER,\r\n J\'ai le regret de vous informer que votre site a ete supprimer du €NOMDUWEBRING car le code du webring\r\n n\'a pas ete trouve.\r\n €SIGNATURE', '',
+        'Bonjour €NOMDUWEBMASTER,\r\nJe suis desole de vous informer que votre site n\'a pas ete accepte pour faire parti du €NOMDUWEBRING\r\n€SIGNATURE',
+        'Bonjour €NOMDUWEBMASTER,\r\n J\'ai le regret de vous informer que votre site a ete supprimé du €NOMDUWEBRING suite à une décision de l\'administrateur\r\n €SIGNATURE',
+        'Bonjour €NOMDUWEBMASTER,\r\nVous avez demande vos identifiants pour €NOMDUWEBRING, les voici :\r\nVotre pseudo : €PSEUDODUMEMBRE\r\nVotre mot de passe : €MOTDEPASSEDUMEMBRE\r\n€SIGNATURE',
+        '4.0 RC1');
